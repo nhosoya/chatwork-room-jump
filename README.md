@@ -1,5 +1,5 @@
 # chatwork-room-jump
-Jump!
+Jump unread rooms like Slack!
 
 ## Installation
 
@@ -10,3 +10,4 @@ Jump!
 ## Features
 
 * <kbd>⌘+k</kbd> or <kbd>Ctr+k</kbd>
+  - Open modal for jump unread rooms.
