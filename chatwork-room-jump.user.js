@@ -23,33 +23,28 @@
     GM_addStyle(jqueryModal);
 
     let open = function() {
-        var $eventSelect = $(".js-example-events");
-        $eventSelect.on("select2:select", function (e) {
+        $(".js-example-events").on("select2:select", function (e) {
             $('*[data-rid="' + e.params.data.id + '"]').trigger('click');
             $.modal.close();
             return true;
         });
-        $('#hogehoge').val('').trigger('change');
-        // $('#hogehoge').select2("val", "");
-        $('#fuga').modal();
-        $('#hogehoge').select2('open');
+        $('#unread-rooms').val('').trigger('change');
+        $('#modal-wrapper').modal();
+        $('#unread-rooms').select2('open');
     };
 
     let jump = function() {
-        $('#fuga').remove();
-        // $('.select2-selection__rendered').remove();
+        $('#modal-wrapper').remove();
         let box = [];
-        box.push('<div id="fuga" style="display:none;"><select id="hogehoge" class="js-example-events js-example-placeholder-single">');
-        // let readRooms = $('.roomListItem__roomName.roomListItem__roomName--noBadge');
+        box.push('<div id="modal-wrapper" style="display:none;"><select id="unread-rooms" class="js-example-events js-example-placeholder-single">');
         let unreadRooms = $('.roomListItem__roomName.roomListItem__roomName--unread');
-        let unreadRoomTitles = $.map(unreadRooms, function(room) {
-            var rid = $(room).closest('._roomLink').data('rid');
-            box.push('<option value="' + rid + '">' + room.textContent + '</option>');
-            return room.textContent + rid;
+        let unreadRoomTitles = unreadRooms.each(function(index) {
+            var rid = $(this).closest('._roomLink').data('rid');
+            box.push('<option value="' + rid + '">' + this.textContent + '</option>');
         });
         box.push('</select></div>');
         $('body').after(box.join(' '));
-        $('#hogehoge').select2({
+        $('#unread-rooms').select2({
             placeholder: 'Jump to...',
             width: '100%',
             allowClear: true
