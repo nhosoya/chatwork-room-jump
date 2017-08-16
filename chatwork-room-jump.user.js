@@ -26,7 +26,6 @@
         $(".js-example-events").on("select2:select", function (e) {
             $('*[data-rid="' + e.params.data.id + '"]').trigger('click');
             $.modal.close();
-            return true;
         });
         $('#unread-rooms').val('').trigger('change');
         $('#modal-wrapper').modal();
