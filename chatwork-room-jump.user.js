@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         chatwork-room-jump
 // @namespace    https://github.com/nhosoya
-// @version      0.0.1
+// @version      0.0.2
 // @description  Jump!!!
 // @author       nhosoya
 // @match        https://www.chatwork.com/*
