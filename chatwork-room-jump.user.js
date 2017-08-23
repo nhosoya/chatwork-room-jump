@@ -53,4 +53,10 @@
     };
 
     key('⌘+k, ctrl+k', jump);
+
+    $('#_chatText').keydown(function(e) {
+      if ((event.ctrlKey || event.metaKey) && e.keyCode == 75) {
+        jump();
+      }
+    });
 })();
